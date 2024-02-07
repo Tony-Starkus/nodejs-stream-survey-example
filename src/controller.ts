@@ -1,12 +1,15 @@
 import Event from 'events';
 import View, { OnProgressUpdatedMethodProps } from './view';
 import Service from './service';
+import config from './config';
+
+type ConfigType = typeof config;
 
 interface ControllerConstructorProps {
   view: View;
   service: Service;
   defaultInputFolder: string;
-  config: any;
+  config: typeof config;
 }
 
 export interface ToolsPerYear {
@@ -17,7 +20,7 @@ export default class Controller {
   view: View;
   service: Service;
   defaultInputFolder: string;
-  config: any;
+  config: ConfigType;
 
   constructor({ view, service, defaultInputFolder, config }: ControllerConstructorProps) {
     this.view = view;
